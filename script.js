@@ -1,7 +1,8 @@
 let difficulty = "easy";
 let score = 0;
 let currentAnswer;
-
+let timer;
+let gameRunning = false;
 let timeLeft = 30;
 
 function newQuest() {
@@ -36,6 +37,7 @@ function newQuest() {
   document.getElementById("question").innerText = `${a} ${op} ${b}`;
 }
 function checkAnswer() {
+  if (!gameRunning) return;
   let user = Number(document.getElementById("answer").value);
   if (user === currentAnswer) {
     score = score + 1;
@@ -48,13 +50,14 @@ function checkAnswer() {
 }
 
 function startTimer() {
-  let timer = setInterval(function () {
+  timer = setInterval(function () {
     timeLeft--;
     document.getElementById("score").innerText = "Score: " + score + " | Time: " + timeLeft + " | " + difficulty.toUpperCase();
 
     if (timeLeft <= 0) {
       clearInterval(timer);
-      document.getElementById("question").innerText = "Game Over!"
+      gameRunning = false;
+      document.getElementById("question").innerText = "Game Over! Final Score: " + score;
       document.getElementById("answer").disabled = true;
     }
   }, 1000);
@@ -62,8 +65,29 @@ function startTimer() {
 
 function setDifficulty(level){
   difficulty = level;
+  resetGame();
+}
+
+function startGame() {
+  if(gameRunning) return;
+
+  gameRunning = true;
+  startTimer();
   newQuest();
 }
+
+function resetGame() {
+  clearInterval(timer)
+  score=0;
+  timeLeft = 30;
+  gameRunning = false;
+
+  document.getElementById("score").innerText = "Score: 0 | Time: 30 | " + difficulty.toUpperCase();
+  document.getElementById("answer").disabled = false;
+  document.getElementById("answer").value = "";
+  document.getElementById("question").innerText = "Press Start"
+}
+
 document.getElementById("answer").addEventListener("keydown", function (event) {
   if (event.key === "Enter") {
       checkAnswer();
