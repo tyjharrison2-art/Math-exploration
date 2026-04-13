@@ -7,7 +7,7 @@ function newQuest() {
 
   currentAnswer = a + b;
 
-  document.getElementById("question").innerText = '${a} + ${b}';
+  document.getElementById("question").innerText = `${a} + ${b}`;
 }
 
 function checkAnswer() {
