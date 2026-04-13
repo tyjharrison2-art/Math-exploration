@@ -1,0 +1,34 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin-top: 80px;
+  background-color: #f4f4f4;
+}
+
+h1 {
+  color: #333;
+}
+
+#question {
+  font-size: 32px;
+  margin: 20px;
+}
+
+input {
+  padding: 10px;
+  font-size: 18px;
+  width: 100px;
+  text-align: center;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+#score {
+  font-size: 20px;
+  margin-top: 20px;
+}
