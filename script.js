@@ -25,7 +25,7 @@ function checkAnswer() {
 }
 
 function startTimer() {
-  let timer = setInterval(funtion () {
+  let timer = setInterval(function () {
     timeLeft--;
     document.getElementById("score").innerText = "Score: " + score + " | Time: " + timeLeft;
 
