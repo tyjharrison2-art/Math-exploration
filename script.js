@@ -60,7 +60,7 @@ function startTimer() {
   }, 1000);
 }
 
-function setDifficulty(){
+function setDifficulty(level){
   difficulty = level;
   newQuest();
 }
