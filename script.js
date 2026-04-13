@@ -1,6 +1,8 @@
 let score = 0;
 let currentAnswer;
 
+let timeLeft = 30;
+
 function newQuest() {
   let a = Math.floor(Math.random() * 10);
   let b = Math.floor(Math.random() * 10);
