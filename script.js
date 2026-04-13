@@ -1,4 +1,4 @@
-let difficulty = easy;
+let difficulty = "easy";
 let score = 0;
 let currentAnswer;
 
