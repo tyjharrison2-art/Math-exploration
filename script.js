@@ -16,10 +16,31 @@ function checkAnswer() {
     score = score + 1;
   }
 
-  document.getElementById("score").innerText = "Score: " + score;
+  // document.getElementById("score").innerText = "Score: " + score;
 
   document.getElementById("answer").value = "";
   newQuest();
 }
 
+function startTimer() {
+  let timer = setInterval(funtion () {
+    timeLeft--;
+    document.getElementById("score").innerText = "Score: " + score + " | Time: " + timeLeft;
+
+    if (timeLeft <= 0) {
+      clearInterval(timer);
+      document.getElementById("question").innerText = "Game Over!"
+      document.getElementById("answer").disabled = true;
+    }
+  }, 1000);
+}
+
+document.getElementById("answer").addEventListener("keydown", function (event) {
+  if (event.key === "Enter) {
+      checkAnswer();
+  }
+});
+                                                
+
 newQuest();
+startTimer();
